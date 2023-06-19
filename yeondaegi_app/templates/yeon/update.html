@@ -1,0 +1,130 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="'ko">
+<head>
+    <meta charset="UTF-8">
+    <title>수정하기</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+   
+</head>
+<body>
+
+    <!-- <div class="'container"> 
+        <form action="{% url 'my_update' update_id=edit_data.id %}" enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+            
+            <table>
+                {{ form_data.as_table}}
+                {{ genre_form.as_table}}
+            </table>
+            <button type="submit">수정하기</button>
+            
+        </form>
+    </div>
+     -->
+    <div style="background-color : #f4f4f0" style="background-size:cover">
+        <div class="flex justify-between container mx-auto">
+        <div class="w-full">
+        <div class="mt-4 px-4">
+        <a href="/yeon/mylist">   
+        <Button class="mt-5 border-2 px-5 py-2 rounded-lg border-black border-b-4 font-black translate-y-2 border-l-4">내가 쓴 글 이동</Button>
+        </a> 
+        <h1 class="text-3xl font-semibold py-7 px-5">글쓰기</h1>
+        <h2 class="font-thinner flex text-4xl pt-10 px-5">Yeondaegi 
+        </h2>
+        
+        <form action="{% url 'my_update' update_id=edit_data.id %}" enctype="multipart/form-data" method="post" class="mx-5 my-5">
+            {% csrf_token %}
+            
+        <label class="relative block p-3 border-2 border-black rounded" htmlFor="name">
+          <span class="text-md font-semibold text-zinc-900" htmlFor="name">
+            년도 
+          </span>
+          <input class="w-full bg-transparent p-0 text-sm  text-gray-500 focus:outline-none" name="year_date" value={{form_data.year_date.value}} type="text"  />
+        </label>
+        <div class="mt-5">
+        <label class="relative block p-3 border-2 border-black rounded">
+        <span class="text-md font-semibold text-zinc-900">월
+        </span>
+        <div class="flex-1 leading-none">
+        <input type="text" class="w-full pl-1 bg-transparent focus:outline-none" name="month_date" value={{form_data.month_date.value}} />
+        </div>
+        </label>
+        </div>
+        
+        <label class="relative block p-3 border-2 mt-5 border-black rounded" htmlFor="name">
+          <span class="text-md font-semibold text-zinc-900" htmlFor="name">
+            일
+          </span>
+        
+          <input class="w-full   p-0 text-sm border-none bg-transparent text-gray-500 focus:outline-none" name="day_date" value={{form_data.day_date.value}} type="text"  />
+        </label>
+        
+        
+        <label class="relative block p-3 border-2  mt-5 border-black rounded" htmlFor="name">
+          <span class="text-md font-semibold  text-zinc-900" htmlFor="name">
+            분야
+          </span>
+        
+          <input class="w-full read-only:bg-zinc-800  p-0 text-sm bg-transparent text-gray-500 focus:outline-none" name="genre_name"  type="text"  />
+          
+        </label>
+        
+        <label  class="relative block p-3 border-2 mt-5 border-black rounded" htmlFor="name">
+          <span class="text-md font-semibold  text-zinc-900" htmlFor="name">
+            내용
+          </span>
+          
+          <!-- <input class="w-full read-only:bg-zinc-800  p-0 text-sm bg-transparent text-gray-500 focus:outline-none" name="contents"   /> -->
+          <textarea name="contents" class="w-full read-only:bg-zinc-800  p-0 text-sm bg-transparent text-gray-500 focus:outline-none">{{form_data.contents.value}}</textarea>
+        </label>
+
+        <label class="block pt-2">
+            <span class="sr-only t-2">Choose profile photo</span>
+            <input type="file" name="img_file" value={{form_data.img_file.value}} id="file1" class="w-full text-sm text-slate-500
+              file:mr-4 file:py-2 file:px-4
+              file:rounded-full file:border-0
+              file:text-sm file:font-semibold
+              file:bg-pink-300 file:text-zinc-900
+              hover:file:bg-rose-300
+            "/>
+            
+          </label>
+
+        <br>
+
+        <div class="flex">
+          {% if edit_data.hide_data == "0" %}
+          <input type="checkbox" id="choose-me" name="hide_check" value=1 class="peer hidden" />
+          <label for="choose-me" class="select-none cursor-pointer rounded-lg border-2 border-gray-700
+            py-3 px-6 font-bold text-gray-500 transition-colors duration-200 ease-in-out peer-checked:bg-gray-500 peer-checked:text-gray-900 peer-checked:border-gray-200 "> 글 숨김 체크 </label>
+          {% else %}
+          <input type="checkbox" id="choose-me" name="hide_check" value=1 class="peer hidden" checked />
+          <label for="choose-me" class="select-none cursor-pointer rounded-lg border-2 border-gray-700
+            py-3 px-6 font-bold text-gray-500 transition-colors duration-200 ease-in-out peer-checked:bg-gray-500 peer-checked:text-gray-900 peer-checked:border-gray-200 "> 글 숨김 해제 </label>
+          {% endif %}
+        </div>
+           
+        <input type="hidden" name="organize_id" value="{{form_data.organize_id.value}}">
+        <input type="hidden" name="u_id" value={{form_data.u_id.value}} >
+        
+        <Button type="submit" class="mt-5 border-2 px-5 py-2 rounded-lg border-black border-b-4 font-black translate-y-2 border-l-4">
+          저장
+        </Button>
+        </form>
+          </div>
+            </div>
+        
+        
+        </div>
+        </div>
+        </div>
+    
+    
+
+
+
+

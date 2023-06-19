@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="'ko">
+<head>
+    <meta charset="UTF-8">
+    <title>연대기</title>
+   
+</head>
+<body>
+    {% if message %}
+        <script>alert('{{ message }}');</script>
+    {% endif %}
+    <li class="nav-item">
+        <a class="nav-link" href="/yeon/create">글쓰기2</a>
+    </li> 
+    <li class="nav-item">
+        <a class="nav-link" href="/yeon/mylist">내가쓴글</a>
+    </li> 
+    <li class="nav-item">
+        <a class="nav-link" href="/yeon/list">모든 리스트 보기</a>
+    </li> 
+    <li class="nav-item">
+        <a class="nav-link" href="/yeon/search">검색하기</a>
+    </li> 
+    <li class="nav-item">
+        <a class="nav-link" href="/yeon/logout">로그아웃</a>
+    </li> 
+     
+</body>
+</html>

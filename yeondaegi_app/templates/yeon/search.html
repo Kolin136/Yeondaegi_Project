@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="'ko">
+<head>
+    <meta charset="UTF-8">
+    <title>검색 하기</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html,
+        body {
+          width: 100vw;
+          height: 100vh;
+        }
+        .container {
+          width: 100vw;
+          height: 100vh;
+          background: #f4f4f0;
+        }
+      </style>
+   
+</head>
+<body>
+
+
+    <div style="background-color : #f4f4f0" style="background-size:cover" >
+        <div class="flex justify-between container mx-auto">
+        <div class="w-full">
+        <div class="mt-4 px-4">
+        <a href="/yeon/mylist">   
+        <Button class="mt-5 border-2 px-5 py-2 rounded-lg border-black border-b-4 font-black translate-y-2 border-l-4">내가 쓴 글 이동</Button>
+        </a> 
+        <h1 class="text-3xl font-semibold py-7 px-5">분야 검색</h1>
+        <h2 class="font-thinner flex text-4xl pt-10 px-5">Yeondaegi 
+        </h2>
+        
+        <form action="{% url 'search' %}" enctype="multipart/form-data" method="post" class="mx-5 my-5">
+            {% csrf_token %}
+
+
+        <label class="relative block p-3 border-2 border-black rounded" htmlFor="name">
+          <span class="text-md font-semibold text-zinc-900" htmlFor="name">
+            분야 이름
+          </span>
+          <input class="w-full bg-transparent p-0 text-sm  text-gray-500 focus:outline-none" name="search_form"  type="text"  />
+        </label>
+    
+        
+        <Button type="submit" class="mt-5 border-2 px-5 py-2 rounded-lg border-black border-b-4 font-black translate-y-2 border-l-4">
+          검색하기
+        </Button>
+        </form>
+          </div>
+            </div>
+        
+        
+        </div>
+        </div>
+        </div>
+    
+    
+
+
+
+</body>
+</html>
+

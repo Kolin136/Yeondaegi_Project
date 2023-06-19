@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="'ko">
+<head>
+    <meta charset="UTF-8">
+    <title>좋아요 리스트</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+</head>
+
+
+<body>
+<section class="bg-sky-100  dark:bg-gray-900">
+    <div class="container px-6 py-10 mx-auto">
+        <h1 class="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">좋아요 리스트</h1>
+
+        <a class="nav-link" href="/yeon/list">
+            <button type="button" class="absolute top-0 left-0 bg-rose-300 rounde mr-3 hidden border border-rose-300 py-1.5 px-6 text-center text-sm font-bold text-gray-600 focus:outline-none focus:ring-4 focus:ring-blue-300 md:inline-block rounded-lg">모든글 돌아가기</button>
+        </a>
+
+        <div class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
+            <article class="rounded-xl bg-yellow-50 p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 "> 
+            <div class="lg:flex">
+                <div class="flex flex-col justify-between py-6 lg:mx-6">
+                    {% for i in like_list %}
+                    <h2 class="text-xl font-semibold text-gray-800 hover:underline dark:text-white ">
+                        {{i}}
+                    </h2>
+                    {% endfor %}
+                </div>
+            </div>
+            </article>
+           
+       
+            
+        </div>
+    </div>
+</section>
+</body>
+</html>

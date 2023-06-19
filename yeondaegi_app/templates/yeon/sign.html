@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="'ko">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html,
+        body {
+          width: 100vw;
+          height: 100vh;
+        }
+        .container {
+          width: 100vw;
+          height: 100vh;
+          background: #f4f4f0;
+        }
+      </style>
+   
+</head>
+<body>
+    
+
+    <div style="background-color : #f4f4f0" style="background-size:cover">
+        <div class="flex justify-between container mx-auto">
+        <div class="w-full">
+        <div class="mt-4 px-4">
+        <a href="/yeon/login">   
+            <Button class="mt-5 border-2 px-5 py-2 rounded-lg border-black border-b-4 font-black translate-y-2 border-l-4">로그인 하기</Button>
+        </a> 
+        <h1 class="text-3xl font-semibold py-7 px-5">회원가입</h1>
+        <h2 class="font-thinner flex text-4xl pt-10 px-5">Sign_Up
+        </h2>
+        
+        {% if message %}
+        <script>alert('{{ message }}');</script>
+        {% endif %}
+        <div>
+            {% for message in messages %}
+                {{ message.tags }}! {{ message.message }}
+            {% endfor %}
+        </div>
+
+        <form action="{% url 'sign' %}" method="post" class="mx-5 my-5">
+            {% csrf_token %}
+
+
+        <label class="relative block p-3 border-2 border-black rounded" htmlFor="name">
+          <span class="text-md font-semibold text-zinc-900" htmlFor="name">
+            아이디
+          </span>
+          <input class="w-full bg-transparent p-0 text-sm  text-gray-500 focus:outline-none" name="user_id"  type="text" placeholder="아이디를 입력하세요" />
+        </label>
+        <div class="mt-5">
+        <label class="relative block p-3 border-2 border-black rounded">
+        <span class="text-md font-semibold text-zinc-900">비밀번호
+        </span>
+        <div class="flex-1 leading-none">
+        <input type="text" class="w-full pl-1 bg-transparent focus:outline-none" name="password" placeholder="비밀번호를 입력하세요"  />
+        </div>
+        </label>
+        </div>
+        
+        <label class="relative block p-3 border-2 mt-5 border-black rounded" htmlFor="name">
+          <span class="text-md font-semibold text-zinc-900" htmlFor="name">
+            비밀번호 확인
+          </span>
+        
+          <input class="w-full   p-0 text-sm border-none bg-transparent text-gray-500 focus:outline-none" name="password_again" type="text" placeholder="비밀번호 다시 입력하세요"  />
+        </label>
+        
+        <Button type="submit" class="mt-5 border-2 px-5 py-2 rounded-lg border-black border-b-4 font-black translate-y-2 border-l-4">
+          회원가입하기
+        </Button>
+        </form>
+          </div>
+            </div>
+        
+        
+        </div>
+        </div>
+        </div>
+    
+    
+
+</body>
+</html>
