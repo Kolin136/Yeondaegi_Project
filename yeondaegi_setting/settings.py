@@ -88,7 +88,7 @@ DATABASES = {
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
     
-    
+    #dszsdakldkasl;dka;sldasd
 
 }
 
